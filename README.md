@@ -7,12 +7,11 @@ The goal of this work is to create an automatic testing framework for system cal
 
 + Generating valid system calls. This function enables the model to generate valid systems calls.
 
-```sequence
+sequence
 System call model->Linux: system calls 
 
 Linux-->Log: responses
 
-```
 
 + Parsing. This function enables the model to tell if a system call response is valid corresponds to a system call when a pair of system call and system call response is given.
 
