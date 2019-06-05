@@ -4,8 +4,11 @@ The system call interface is the central mechanism for userspace programs to int
 SCONE enables the transparent execution of legacy software in Intel SGX enclaves. While SGX protects the program's memory content and execution from eavesdropping and malicious modifications, the interaction with the operating system, which is necessary for all non-trivial applications, would easily be observable and could further be used by an adversary to tamper with the program's execution rendering the SGX protection hollow. SCONE's Shielding Layer solves this issue by transparently protecting, for example through encryption, the program data before giving the system call to the operating system. To achieve its security guarantees, a correct implementation of the shielding layer is vital. Unfortunately, the processed system calls are too involved in number and structure for an exhaustive manual testing process.
 
 The goal of this work is to create an automatic testing framework for system call interceptors. For this means, a model of the system call interface's calls, their arguments and responses has to be designed and implemented in Rust. This model realizes three functions:
+
 *Generating valid system calls. This function enables the model to generate valid systems calls.
+
 *Parsing. This function enables the model to tell if a system call response is valid corresponds to a system call when a pair of system call and system call response is given.
+
 *Generating valid system call responses. This function enable the model to generate a valid system call when a system call is given. This function can behave benign or malicious depands on the need. While a benign model generates valid reponses the same  as the kernal system, a malicious model may only generate 'valid' reponse from the point of view of format. That is to say, the content of a malicious response doesn't contain valid information, although it is delivered in standard format.
 
 
