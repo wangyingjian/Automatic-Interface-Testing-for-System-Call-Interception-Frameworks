@@ -5,11 +5,11 @@ SCONE enables the transparent execution of legacy software in Intel SGX enclaves
 
 The goal of this work is to create an automatic testing framework for system call interceptors. For this means, a model of the system call interface's calls, their arguments and responses has to be designed and implemented in Rust. This model realizes three functions:
 
-*Generating valid system calls. This function enables the model to generate valid systems calls.
++Generating valid system calls. This function enables the model to generate valid systems calls.
 
-*Parsing. This function enables the model to tell if a system call response is valid corresponds to a system call when a pair of system call and system call response is given.
++Parsing. This function enables the model to tell if a system call response is valid corresponds to a system call when a pair of system call and system call response is given.
 
-*Generating valid system call responses. This function enable the model to generate a valid system call when a system call is given. This function can behave benign or malicious depands on the need. While a benign model generates valid reponses the same  as the kernal system, a malicious model may only generate 'valid' reponse from the point of view of format. That is to say, the content of a malicious response doesn't contain valid information, although it is delivered in standard format.
++Generating valid system call responses. This function enable the model to generate a valid system call when a system call is given. This function can behave benign or malicious depands on the need. While a benign model generates valid reponses the same  as the kernal system, a malicious model may only generate 'valid' reponse from the point of view of format. That is to say, the content of a malicious response doesn't contain valid information, although it is delivered in standard format.
 
 
 The model should provide two basic functionalities. First, it should empower us to fuzz test the system call interceptor from the application, as well as, the kernel side by generating random, but well-structured system calls (requests) respectively system call responses. Moreover, allow us to ensure the integrity of any given system call request/response, e.g., that arguments have the expected data type or that given (array/buffer) size arguments are correct. The effectiveness of the approach shall be evaluated by comparing the responses of an intercepted system call interface to a not intercepted baseline using fuzz tests.
