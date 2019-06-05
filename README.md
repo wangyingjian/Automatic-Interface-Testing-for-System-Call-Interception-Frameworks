@@ -13,12 +13,6 @@ System call model->Linux: system calls
 Linux-->Log: responses
 
 ```
-```seq
-Andrew->China: Says Hello 
-Note right of China: China thinks\nabout it 
-China-->Andrew: How are you? 
-Andrew->>China: I am good thanks!
-```
 
 + Parsing. This function enables the model to tell if a system call response is valid corresponds to a system call when a pair of system call and system call response is given.
 
