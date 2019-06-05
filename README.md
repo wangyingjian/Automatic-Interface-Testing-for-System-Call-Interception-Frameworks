@@ -9,6 +9,8 @@ The goal of this work is to create an automatic testing framework for system cal
 
 + Parsing. This function enables the model to tell if a system call response is valid corresponds to a system call when a pair of system call and system call response is given.
 
+(Q: Does it mean that the model checks the response according to how the reterned arguments are difined for certain system call?)
+
 + Generating valid system call responses. This function enable the model to generate a valid system call when a system call is given. <s>This function can behave benign or malicious depands on the need. While a benign model generates valid reponses the same as the kernal system, a malicious model may only generate 'valid' reponse from the point of view of format. That is to say, the content of a malicious response doesn't contain valid information, although it is delivered in standard format.</s>
 
 (Q: Does it mean that the model itself has the ability to response a system call without the attendance of the kernel side? Or just collect the response after generating the system call?)
@@ -19,5 +21,6 @@ Two implimentations are inspired from the model.
 + First, the model should empower us to fuzz test the system call interceptor from the application, as well as, the kernel side by generating random, but well-structured system calls (requests) respectively system call responses. In our case, an application based on this model is under the protection of the SCONE Shielding Layer. The application generates system calls and these system calls are deliverd to the kernel side through the SCONE Shielding Layer. The responses will be recorded and compired with the responses where the input is the same but SCONE Shielding Layer is absent.
 
 + Moreover, allow us to ensure the integrity of any given system call request/response, e.g., that arguments have the expected data type or that given (array/buffer) size arguments are correct. 
+(Q: Does it mean that the model first track the system call and check if the response is valid in advance?)
 
 The effectiveness of the approach shall be evaluated by comparing the responses of an intercepted system call interface to a not intercepted baseline using fuzz tests.
