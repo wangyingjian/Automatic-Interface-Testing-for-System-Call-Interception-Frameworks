@@ -7,7 +7,7 @@ The goal of this work is to create an automatic testing framework for system cal
 
 + Generating valid system calls. This function enables the model to generate valid systems calls.
 
-```seq
+```sequence
 System call model->Linux: system calls 
 
 Linux-->Log: responses
