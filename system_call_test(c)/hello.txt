@@ -1,0 +1,6 @@
+c:14:1: error: stray ‘\230’ in program
+c:14:1: error: stray ‘\230’ in program
+c:14:1: error: stray ‘\230’ in program
+c:14:1: error: stray ‘\230’ in program
+c:14:1: error: stray ‘\230’ in program
+
